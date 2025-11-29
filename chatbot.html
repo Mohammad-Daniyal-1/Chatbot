@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abeda Inamdar - Inquiry Chatbot</title>
+    <link rel="stylesheet" href="chatbot.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <!-- Initial Card -->
+    <div class="initial-card" id="initialCard">
+        <div class="header">
+            <div class="logo">AISC</div>
+            <h1>Abeda Inamdar<br>Senior College</h1>
+        </div>
+        <div class="description">
+            <p>Welcome to The Abeda Inamdar Inquiry Chatbot. Click below to get started!</p>
+        </div>
+        <button class="btn" onclick="showChatbotInterface()">Start Chatbot</button>
+    </div>
+
+    <!-- Main Chatbot Interface -->
+    <div class="container" id="mainContainer" style="display: none;">
+        <div class="header">
+            <div class="logo">AISC</div>
+            <h1>Abeda Inamdar<br>Senior College</h1>
+            <p>Inquiry Chatbot</p>
+        </div>
+        
+        <div id="selection-page" class="content">
+            <div class="selection-buttons">
+                <button class="btn" onclick="showLoginPage('guest')">GUEST</button>
+                <button class="btn" onclick="showLoginPage('student')">STUDENT</button>
+                <button class="btn" onclick="showLoginPage('faculty')">FACULTY</button>
+            </div>
+        </div>
+
+        <div id="login-page" class="content" style="display: none;">
+            <h2>Log In</h2><br>
+            <form class="form-group" method="POST" action="login.php"> <!-- Action set to login.php -->
+                <input type="text" placeholder="AISC ID" id="aisc_user" name="aisc_user" required>
+                <input type="password" placeholder="Password" id="pass" name="pass" required>
+                <input type="hidden" id="userType" name="userType" value=""> <!-- Stores user type -->
+                <button type="submit" class="btn">LOGIN</button>
+            </form>
+            <div class="switch-form">
+                <p>New at AISC Chatbot? <a href="#" onclick="showRegisterPage()">REGISTER</a></p>
+            </div>
+        </div>
+
+        <div id="register-page" class="content" style="display: none;">
+            <h2>Register</h2><br>
+            <form class="form-group" onsubmit="return false;">
+                <input type="text" placeholder="AISC ID" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn">REGISTER</button>
+            </form>
+            <div class="switch-form">
+                <p>Already have an account? <a href="#" onclick="showLoginPage()">LOGIN</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-bot" onclick="toggleMainContainer()"></div>
+    <script src="chatbot.js"></script> <!-- Link to the JS file -->
+</body>
+</html>

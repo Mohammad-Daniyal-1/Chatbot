@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abeda Inamdar - Inquiry Chatbot</title>
+    <link rel="stylesheet" href="chat_box.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>AISC CHATBOT</h1>
+            <nav class="nav-links">
+                <a href="https://www.abedainamdarcollege.org.in/home">Home</a>
+                <a href="https://www.abedainamdarcollege.org.in/about_us">About Us</a>
+                <a href="https://wa.me/919921909279?text=I%20would%20like%20to%20share%20my%20thoughts%20about%20the%20AISC%20Chatbot.%20Here%20are%20my%20suggestions...">Suggestions</a>
+                <a href="logout.php">Log Out</a>
+            </nav>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <!-- Messages will be dynamically added here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <div class="send-btn" onclick="sendMessage()">
+                <img src="send-icon.png" alt="Send">
+            </div>
+        </div>
+        <input type="hidden" id="userType" value="<?php echo $_SESSION['user']['userType']; ?>"> <!-- Added hidden input for user type -->
+    </div>
+    <script src="chat_box.js"></script>
+</body>
+</html>
